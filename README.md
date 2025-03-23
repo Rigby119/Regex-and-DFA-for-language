@@ -1,5 +1,6 @@
 
-# Lexical Analysis Parser: Detecting a Custom Language
+# Regex and DFA for math language
+Author: Roberto Serna Niño - A01709577
 
 ## Description
 
