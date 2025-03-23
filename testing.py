@@ -2,6 +2,7 @@ import unittest
 # Load the main code file
 from regexTest import test_regex
 
+
 # Import the function to be tested
 class TestRegexPattern(unittest.TestCase):
     # Test case for an empty string
@@ -11,14 +12,14 @@ class TestRegexPattern(unittest.TestCase):
     # Test case for valid strings
     def test_valid_strings(self):
         valid_cases = [
-            '1111',    # ends with 1111
-            '221',     # ends with 221
-            '001111',  # ends with 1111
-            '222221',  # ends with 221
-            '2201111', # ends with 1111
-            '01221',   # ends with 221
-            '101111',  # ends with 1111
-            '201111',  # ends with 1111
+            '1111',     # ends with 1111
+            '221',      # ends with 221
+            '001111',   # ends with 1111
+            '222221',   # ends with 221
+            '2201111',  # ends with 1111
+            '01221',    # ends with 221
+            '101111',   # ends with 1111
+            '201111',   # ends with 1111
         ]
         for case in valid_cases:
             self.assertTrue(test_regex(case))
@@ -37,6 +38,7 @@ class TestRegexPattern(unittest.TestCase):
         ]
         for case in invalid_cases:
             self.assertFalse(test_regex(case))
+
 
 if __name__ == '__main__':
     unittest.main()
