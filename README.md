@@ -1,5 +1,5 @@
-# Regex-and-DFA-for-language
-Implementation of Computational Methods project by A01709577 - Roberto Serna Niño
+
+# Lexical Analysis Parser: Detecting a Custom Language
 
 ## Description
 
@@ -9,7 +9,7 @@ To achieve this, we implemented both approaches—DFA for its efficiency and str
 
 ## Models
 
-![DFA made by hand](https://i.imgur.com/c5YIocL.jpeg)
+![DFA made by hand](https://i.imgur.com/3VDGv4v.jpeg)
 ![DFA polished](https://i.imgur.com/C3222T8.png)
 ### DFA
 
@@ -26,6 +26,34 @@ The DFA (Deterministic Finite Automaton) was constructed to represent the same l
 5.  **Accepting States** (`F`) = `[I,J]`
 
 The construction of the DFA began with the smallest possible expressions and progressively incorporated the language's constraints. This resulted in the final DFA, which accepts or rejects strings based on whether they conform to the specified rules.
+
+### Prolog DFA Implementation
+
+The Prolog implementation of the DFA accepts strings composed of the digits `0`, `1`, and `2` with the same constraints: prohibiting '2111', and ensuring the string ends with '1111' or '221'.
+
+The Prolog code uses states (`S`, `A`, `B`, etc.), transitions between them, and final states (`I` and `J`) to validate whether the input string adheres to the language's rules.
+
+#### Code Explanation
+
+-   **Transition rules** define how the automaton moves between states based on the current input symbol.
+    
+-   **Final states** (`I` and `J`) represent the accepting states where the string is considered valid.
+    
+-   **Recursion** in the `process_word` predicate is used to process each character of the input string and move through the DFA's states until the entire string is processed.
+
+### Running the Prolog DFA
+
+To run the Prolog DFA, follow these steps:
+
+1.  Open SWI-Prolog.
+    
+2.  Open the files as consult... `dfa.pl` and `dfa_test.pl`.
+   
+4.  To test the automaton, you can call the `start_automaton` predicate with a list representing the input string:
+    
+    `start_automaton([1,1,1,1]).` 
+    
+    The output will indicate whether the string is accepted by the DFA.
 
 ### Regular Expression
 
@@ -61,6 +89,16 @@ To test the regular expression, we use the Python 're' module. The following is 
     To exit, type: `q` 
 
 ## Tests
+
+### Prolog DFA Tests
+
+To run the tests for the Prolog DFA implementation:
+
+1.  Inside the Prolog interpreter, once you consult both `dfa.pl` and `dfa_test.pl`, you can run each test by calling the relevant test predicates, like:
+    
+    `run_tests.` 
+    
+    Each test will output either `Success` or `Failed`.
 
 ### Regular Expression Tests
 
